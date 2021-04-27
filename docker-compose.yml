@@ -1,0 +1,39 @@
+# NAME: docker-compose.yml
+# AUTH: Ryan McCartney <ryan.mccartney@bbc.co.uk>
+# DATE: 04/03/2021
+# DESC: Defines Docker services for Bug
+
+version: '3.8'
+
+networks:
+  mediasoup:
+    name: mediasoup
+    driver: bridge
+
+services:
+  server:
+    build: "./server"
+    restart: always
+    ports:
+      - 3000:3000
+    environment:
+      - PROCESS_NAME=GStreamer
+      - SERVER_PORT=3000
+      - DOMAIN=192.168.0.10
+    volumes:
+      - ./server/files:/home/node/server/files
+    hostname: server
+    networks:
+      - mediasoup
+  app:
+    build: "./app"
+    restart: always
+    depends_on:
+      - server
+    environment: 
+      - DOMAIN=192.168.0.10
+    ports:
+      - 8080:8080
+    hostname: app
+    networks:
+      - mediasoup
