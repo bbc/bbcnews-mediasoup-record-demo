@@ -4,7 +4,7 @@ const { GUM } = require('./gum');
 const Peer = require('./peer');
 const SocketQueue = require('./queue');
 
-const mediasoupConfig = require('../../server/src/config');
+const mediasoupConfig = require('../config');
 
 let peer;
 const queue = new SocketQueue();
