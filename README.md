@@ -12,10 +12,15 @@ File names are simply the current timestamp
 
 This sample currently only uses VP8/opus and the output file is .webm
 
+## How to use - Docker
 
----
+```bash
+docker compose up -d
+```
 
-## How to use
+You can tweak all the same environment variables in the `docker-compose.yml` file
+
+## How to use  - Locally
 
 ### Install GStreamer
 
@@ -67,7 +72,6 @@ https://localhost:8080
 
 By default recorded videos will be available in `server/files` directory.
 
----
 
 ## Server ENV Options
 
@@ -77,6 +81,7 @@ By default recorded videos will be available in `server/files` directory.
 | GSTREAMER_DEBUG_LEVEL | number | GStreamer Debug Level (GStreamer only) |
 | PROCESS_NAME | string | The command to use (GStreamer/FFmpeg) (case sensitive) default is FFmpeg |
 | SERVER_PORT | number | Server port number (default is 3000). Note if you change this you will also need to edit the WebSocket connection url. |
+| DOMAIN | string | The external domain or IP address where your app is served, see `config.js`. |
 
 ---
 
