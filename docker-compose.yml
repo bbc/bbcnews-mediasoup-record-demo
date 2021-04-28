@@ -20,6 +20,8 @@ services:
       - PROCESS_NAME=GStreamer
       - SERVER_PORT=3000
       - DOMAIN=127.0.0.1
+      - RECORD_FILE_LOCATION_PATH =./files
+      - GSTREAMER_DEBUG_LEVEL=3
     volumes:
       - ./server/files:/home/node/server/files
     hostname: server

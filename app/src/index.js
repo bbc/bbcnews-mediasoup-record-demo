@@ -4,12 +4,12 @@ const { GUM } = require('./gum');
 const Peer = require('./peer');
 const SocketQueue = require('./queue');
 
-const mediasoupConfig = require('../config');
+const mediasoupConfig = require('./config');
 
 let peer;
 const queue = new SocketQueue();
 
-const socket = new WebSocket(`ws://${window.location.hostname}:3000`);
+const socket = new WebSocket(`wss://${window.location.hostname}:3000`);
 
 const handleSocketOpen = async () => {
   console.log('handleSocketOpen()');
