@@ -19,7 +19,7 @@ services:
     environment:
       - PROCESS_NAME=GStreamer
       - SERVER_PORT=3000
-      - DOMAIN=192.168.0.10
+      - DOMAIN=127.0.0.1
     volumes:
       - ./server/files:/home/node/server/files
     hostname: server
@@ -31,7 +31,7 @@ services:
     depends_on:
       - server
     environment: 
-      - DOMAIN=192.168.0.10
+      - DOMAIN=127.0.0.1
     ports:
       - 8080:8080
     hostname: app
